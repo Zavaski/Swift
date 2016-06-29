@@ -16,7 +16,7 @@ class MovimentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        movimentoSegue.text = viaSegue
+        categoriaSegue.text = viaSegue
         // Do any additional setup after loading the view.
     }
 

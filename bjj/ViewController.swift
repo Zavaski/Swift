@@ -9,25 +9,52 @@
 import UIKit
 
 
+struct begginer
+{
+    
+    var categoria: String!
+    var movimento: String!
+    var img: String!
+    
+    init(categoria: String, movimento: String, img: String)
+    {
+        self.categoria = categoria
+        self.movimento = movimento
+        self.img = img
+    }
+}
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
- 
+    
+    var begginers: [begginer] = [begginer]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let basic1 = begginer(categoria: "Guard", movimento: "armlock", img: "teste")
+        
+        let basic2 = begginer(categoria: "Guard", movimento: "armlock", img: "teste")
+        
+        let basic3 = begginer(categoria: "Guard", movimento: "armlock", img: "teste")
+        
+        begginers.append(basic1)
+        begginers.append(basic2)
+        begginers.append(basic3)
+        
+        self.table!.delegate = self
+        self.table!.dataSource = self
+    }
+    
+
+    
+    
     let basicList:[String] = ["Private item 1", "Private item 2"]
     let intermediateList:[String] = ["Friend item1","Friend item 2", "Friend item 3"]
     let advancedList:[String] = ["Public item 1", "Public item 2","Public item 3", "Public item 4"]
     @IBOutlet weak var mySegmentedControl: UISegmentedControl!
     @IBOutlet weak var table: UITableView?
     
-    
-    override func viewDidLoad() {
-        
-        
-        super.viewDidLoad()
-        
-        self.table!.delegate = self
-        self.table!.dataSource = self
-    }
-    
-    override func didReceiveMemoryWarning() {
+       override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
@@ -40,7 +67,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         switch(mySegmentedControl.selectedSegmentIndex)
         {
         case 0:
-            returnValue = basicList.count
+            //returnValue = beginners.count
+            returnValue = begginers.count
             break
         case 1:
             returnValue = intermediateList.count
@@ -63,7 +91,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             switch(mySegmentedControl.selectedSegmentIndex)
             {
             case 0:
-                myCell.textLabel?.text = basicList[indexPath.row]
+                myCell.textLabel?.text = begginers[indexPath.row].categoria
+
                 break
             case 1:
                 myCell.textLabel?.text = intermediateList[indexPath.row]
