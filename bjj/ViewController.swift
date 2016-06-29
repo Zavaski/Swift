@@ -11,9 +11,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
  
-    let privateList:[String] = ["Private item 1", "Private item 2"]
-    let friendsAndFamily:[String] = ["Friend item1","Friend item 2", "Friend item 3"]
-    let publicList:[String] = ["Public item 1", "Public item 2","Public item 3", "Public item 4"]
+    let basicList:[String] = ["Private item 1", "Private item 2"]
+    let intermediateList:[String] = ["Friend item1","Friend item 2", "Friend item 3"]
+    let advancedList:[String] = ["Public item 1", "Public item 2","Public item 3", "Public item 4"]
     @IBOutlet weak var mySegmentedControl: UISegmentedControl!
     @IBOutlet weak var table: UITableView?
     
@@ -40,14 +40,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         switch(mySegmentedControl.selectedSegmentIndex)
         {
         case 0:
-            returnValue = privateList.count
+            returnValue = basicList.count
             break
         case 1:
-            returnValue = friendsAndFamily.count
+            returnValue = intermediateList.count
             break
             
         case 2:
-            returnValue = publicList.count
+            returnValue = advancedList.count
             break
             
         default:
@@ -63,14 +63,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             switch(mySegmentedControl.selectedSegmentIndex)
             {
             case 0:
-                myCell.textLabel?.text = privateList[indexPath.row]
+                myCell.textLabel?.text = basicList[indexPath.row]
                 break
             case 1:
-                myCell.textLabel?.text = friendsAndFamily[indexPath.row]
+                myCell.textLabel?.text = intermediateList[indexPath.row]
                 break
                 
             case 2:
-                myCell.textLabel?.text = publicList[indexPath.row]
+                myCell.textLabel?.text = advancedList[indexPath.row]
                 break
                 
             default:
@@ -88,6 +88,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tb.reloadData()
         }
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SendDataSegue" {
+            if let destination = segue.destinationViewController as? MovimentViewController {
+                
+                switch(mySegmentedControl.selectedSegmentIndex)
+                {
+                case 0:
+                    let path = table?.indexPathForSelectedRow
+                    destination.viaSegue = basicList[path!.row]
+                    break
+                case 1:
+                    let path = table?.indexPathForSelectedRow
+                    destination.viaSegue = intermediateList[path!.row]
+                    break
+                    
+                case 2:
+                    let path = table?.indexPathForSelectedRow
+                    destination.viaSegue = advancedList[path!.row]
+                    break
+                    
+                default:
+                    break
+                    
+                }
+
+                
+                
+                
+            }
+        }
+    //override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      //  super.prepareForSegue(segue, sender: sender)
+        
+      //  let index: Int = table?.indexPathForSelectedRow?.row
+        
+       // let dx = segue.destinationViewController as!
+        
+        //dx.
+        
+    }
 }
 

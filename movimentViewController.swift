@@ -1,19 +1,22 @@
 //
-//  movimentViewController.swift
+//  MovimentViewController.swift
 //  bjj
 //
-//  Created by Student on 6/28/16.
+//  Created by Student on 29/06/16.
 //  Copyright © 2016 test. All rights reserved.
 //
 
 import UIKit
 
-class movimentViewController: UIViewController {
+class MovimentViewController: UIViewController {
 
-    @IBOutlet weak var movimentBasic: UILabel!
+    @IBOutlet weak var movimentoSegue: UILabel!
+    @IBOutlet weak var categoriaSegue: UILabel!
+    var viaSegue = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        movimentoSegue.text = viaSegue
         // Do any additional setup after loading the view.
     }
 

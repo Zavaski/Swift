@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F34A5EF1D23E9F500112B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F34A5EE1D23E9F500112B86 /* LaunchScreen.storyboard */; };
-		3FD487201D22B8D700D5C57D /* movimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4871F1D22B8D700D5C57D /* movimentViewController.swift */; };
+		3F34A5F11D24006E00112B86 /* MovimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F34A5F01D24006E00112B86 /* MovimentViewController.swift */; };
 		3FDA1D931D2145350094DC70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA1D921D2145350094DC70 /* AppDelegate.swift */; };
 		3FDA1D951D2145350094DC70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA1D941D2145350094DC70 /* ViewController.swift */; };
 		3FDA1D9B1D2145350094DC70 /* bjj.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA1D991D2145350094DC70 /* bjj.xcdatamodeld */; };
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		3F34A5EE1D23E9F500112B86 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3FD4871F1D22B8D700D5C57D /* movimentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = movimentViewController.swift; sourceTree = "<group>"; };
+		3F34A5F01D24006E00112B86 /* MovimentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovimentViewController.swift; sourceTree = "<group>"; };
 		3FDA1D8F1D2145350094DC70 /* bjj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bjj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FDA1D921D2145350094DC70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FDA1D941D2145350094DC70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = bjj/ViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		3FDA1DAF1D2147B60094DC70 /* CONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
+				3F34A5F01D24006E00112B86 /* MovimentViewController.swift */,
 				3FDA1D941D2145350094DC70 /* ViewController.swift */,
-				3FD4871F1D22B8D700D5C57D /* movimentViewController.swift */,
 				3FDA1DB81D21569E0094DC70 /* Home Screen */,
 			);
 			name = CONTROLLER;
@@ -233,7 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDA1DAC1D2147850094DC70 /* bjjTableViewController.swift in Sources */,
-				3FD487201D22B8D700D5C57D /* movimentViewController.swift in Sources */,
+				3F34A5F11D24006E00112B86 /* MovimentViewController.swift in Sources */,
 				3FDA1DC41D2159520094DC70 /* bjjBasicCell.swift in Sources */,
 				3FDA1DC61D2159660094DC70 /* bjjAdvancedCell.swift in Sources */,
 				3FDA1DC81D21597A0094DC70 /* bjjIntermediateCell.swift in Sources */,

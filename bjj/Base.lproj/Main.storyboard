@@ -29,6 +29,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="477" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="muR-5h-911" kind="show" identifier="SendDataSegue" id="LLS-uh-xgH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -126,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="328" y="341"/>
         </scene>
-        <!--View Controller-->
+        <!--Moviment View Controller-->
         <scene sceneID="1cT-s2-I6r">
             <objects>
-                <viewController id="muR-5h-911" sceneMemberID="viewController">
+                <viewController id="muR-5h-911" customClass="MovimentViewController" customModule="bjj" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bC7-ww-Wrg"/>
                         <viewControllerLayoutGuide type="bottom" id="wCh-9u-Sc0"/>
@@ -137,12 +140,35 @@
                     <view key="view" contentMode="scaleToFill" id="NI7-NZ-rYg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z1N-Fq-okb">
+                                <rect key="frame" x="270" y="124" width="85" height="41"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Categoria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-Uo-YUW">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Movimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajg-zJ-Keb">
+                                        <rect key="frame" x="0.0" y="21" width="85" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="categoriaSegue" destination="Yki-Uo-YUW" id="WI4-cA-X8r"/>
+                        <outlet property="movimentoSegue" destination="ajg-zJ-Keb" id="Mt2-PP-pqe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gC-Xt-uB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752" y="341"/>
+            <point key="canvasLocation" x="1810" y="341"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GXe-WS-DYO">
