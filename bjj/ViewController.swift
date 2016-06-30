@@ -125,20 +125,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 switch(mySegmentedControl.selectedSegmentIndex)
                 {
                 case 0:
-                    let path = table?.indexPathForSelectedRow
-                    destination.categoriaViaSegue = begginers[path!.row].categoria
-                    destination.movimentoViaSegue = begginers[path!.row].movimento
+                    //linha selecionada
+                    //let path = table?.indexPathForSelectedRow
+                    destination.begginersViaSegue = begginers
                     break
                 case 1:
-                    let path = table?.indexPathForSelectedRow
-                    destination.categoriaViaSegue = inters[path!.row].categoria
-                    destination.movimentoViaSegue = inters[path!.row].movimento
+                    //let path = table?.indexPathForSelectedRow
+                    destination.intersViaSegue = inters
                     break
                     
                 case 2:
-                    let path = table?.indexPathForSelectedRow
-                    destination.categoriaViaSegue = advs[path!.row].categoria
-                    destination.movimentoViaSegue = inters[path!.row].movimento
+                    //let path = table?.indexPathForSelectedRow
+                    destination.advsViaSegue = advs
+                    
                     break
                     
                 default:

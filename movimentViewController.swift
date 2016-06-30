@@ -8,23 +8,108 @@
 
 import UIKit
 
-class MovimentViewController: UIViewController {
+class MovimentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
+    @IBOutlet weak var table: UITableView?
+   
 
-    @IBOutlet weak var movimentoSegue: UILabel!
-    @IBOutlet weak var categoriaSegue: UILabel!
-    var viaSegue = ""
+    
+    
+    
+    var begginersViaSegue: [bas] = [bas]()
+    var intersViaSegue: [inter] = [inter]()
+    var advsViaSegue: [adv] = [adv]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoriaSegue.text = viaSegue
-        // Do any additional setup after loading the view.
+        self.table!.delegate = self
+        self.table!.dataSource = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+        {
+            var returnValue = 0
+            if(begginersViaSegue.count > 0){
+                returnValue = begginersViaSegue.count
+            }
+            else if(intersViaSegue.count > 0){
+                returnValue = intersViaSegue.count
+            }else if(advsViaSegue.count > 0){
+                    returnValue = advsViaSegue.count
+            }
+            return returnValue
+        }
+        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+        {
+            let myCell = tableView.dequeueReusableCellWithIdentifier("myCellID", forIndexPath: indexPath)
+            
+            if(begginersViaSegue.count > 0){
+              myCell.textLabel?.text = begginersViaSegue[indexPath.row].movimento
+            }
+            else if(intersViaSegue.count > 0){
+                myCell.textLabel?.text = intersViaSegue[indexPath.row].movimento
+            }else if(advsViaSegue.count > 0){
+                myCell.textLabel?.text = advsViaSegue[indexPath.row].movimento
+            }
+
+            
+            return myCell
+        }
+        
+    
+        
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if segue.identifier == "SendDataSegueFinally" {
+                if let destination = segue.destinationViewController as? FinallyViewController {
+                    
+                    
+                    let path = table?.indexPathForSelectedRow
+                    if(begginersViaSegue.count > 0){
+                        destination.categoriaViaSegue = begginersViaSegue[path!.row].categoria
+                        destination.movimentoViaSegue = begginersViaSegue[path!.row].movimento
+                    }
+                    else if(intersViaSegue.count > 0){
+                        destination.categoriaViaSegue = intersViaSegue[path!.row].categoria
+                        destination.movimentoViaSegue = intersViaSegue[path!.row].movimento
+                    }else if(advsViaSegue.count > 0){
+                        destination.categoriaViaSegue = advsViaSegue[path!.row].categoria
+                        destination.movimentoViaSegue = advsViaSegue[path!.row].movimento
+                    }
+
+                    
+                    
+                    /*  switch(table?.allowsSelection)
+                    {
+case 0:
+                        let path = table?.indexPathForSelectedRow
+                        destination.categoriaViaSegue = begginersViaSegue[path!.row].categoria
+                        destination.movimentoViaSegue = begginersViaSegue[path!.row].movimento
+                        break
+                    case 1:
+                        let path = table?.indexPathForSelectedRow
+                        destination.categoriaViaSegue = intersViaSegue[path!.row].categoria
+                        destination.movimentoViaSegue = intersViaSegue[path!.row].movimento
+                        break
+                        
+                    case 2:
+                        let path = table?.indexPathForSelectedRow
+                        destination.categoriaViaSegue = advsViaSegue[path!.row].categoria
+                        destination.movimentoViaSegue = advsViaSegue[path!.row].movimento
+                        
+                        break
+                        
+                    default:
+                        break
+                        
+                    }
+                    */
+                    
+                    
+                    
+                }
+            }
 
     /*
     // MARK: - Navigation
@@ -35,5 +120,5 @@ class MovimentViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+}
 }
