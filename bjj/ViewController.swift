@@ -9,37 +9,41 @@
 import UIKit
 
 
-struct begginer
-{
-    
-    var categoria: String!
-    var movimento: String!
-    var img: String!
-    
-    init(categoria: String, movimento: String, img: String)
-    {
-        self.categoria = categoria
-        self.movimento = movimento
-        self.img = img
-    }
-}
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var begginers: [begginer] = [begginer]()
+    var begginers: [bas] = [bas]()
+    var inters: [inter] = [inter]()
+    var advs: [adv] = [adv]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let basic1 = begginer(categoria: "Guard", movimento: "armlock", img: "teste")
-        
-        let basic2 = begginer(categoria: "Guard", movimento: "armlock", img: "teste")
-        
-        let basic3 = begginer(categoria: "Guard", movimento: "armlock", img: "teste")
+        let basic1 = bas(categoria: "Guard basic", movimento: "armlock", img: "teste")
+        let basic2 = bas(categoria: "Guard", movimento: "armlock", img: "teste")
+        let basic3 = bas(categoria: "Guard", movimento: "armlock", img: "teste")
         
         begginers.append(basic1)
         begginers.append(basic2)
         begginers.append(basic3)
+        
+        let inter1 = inter(categoria: "Guard inter", movimento: "armlock", img: "teste")
+        let inter2 = inter(categoria: "Guard", movimento: "armlock", img: "teste")
+        let inter3 = inter(categoria: "Guard", movimento: "armlock", img: "teste")
+        
+        inters.append(inter1)
+        inters.append(inter2)
+        inters.append(inter3)
+        
+      
+        let adv1 = adv(categoria: "Guard advr", movimento: "armlock", img: "teste")
+        let adv2 = adv(categoria: "Guard", movimento: "armlock", img: "teste")
+        let adv3 = adv(categoria: "Guard", movimento: "armlock", img: "teste")
+        
+        advs.append(adv1)
+        advs.append(adv2)
+        advs.append(adv3)
+
         
         self.table!.delegate = self
         self.table!.dataSource = self
@@ -48,9 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     
-    let basicList:[String] = ["Private item 1", "Private item 2"]
-    let intermediateList:[String] = ["Friend item1","Friend item 2", "Friend item 3"]
-    let advancedList:[String] = ["Public item 1", "Public item 2","Public item 3", "Public item 4"]
     @IBOutlet weak var mySegmentedControl: UISegmentedControl!
     @IBOutlet weak var table: UITableView?
     
@@ -71,11 +72,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             returnValue = begginers.count
             break
         case 1:
-            returnValue = intermediateList.count
+            returnValue = inters.count
             break
             
         case 2:
-            returnValue = advancedList.count
+            returnValue = advs.count
             break
             
         default:
@@ -95,11 +96,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
                 break
             case 1:
-                myCell.textLabel?.text = intermediateList[indexPath.row]
+                myCell.textLabel?.text = inters[indexPath.row].categoria
                 break
                 
             case 2:
-                myCell.textLabel?.text = advancedList[indexPath.row]
+                myCell.textLabel?.text = advs[indexPath.row].categoria
                 break
                 
             default:
@@ -125,16 +126,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 {
                 case 0:
                     let path = table?.indexPathForSelectedRow
-                    destination.viaSegue = basicList[path!.row]
+                    destination.categoriaViaSegue = begginers[path!.row].categoria
+                    destination.movimentoViaSegue = begginers[path!.row].movimento
                     break
                 case 1:
                     let path = table?.indexPathForSelectedRow
-                    destination.viaSegue = intermediateList[path!.row]
+                    destination.categoriaViaSegue = inters[path!.row].categoria
+                    destination.movimentoViaSegue = inters[path!.row].movimento
                     break
                     
                 case 2:
                     let path = table?.indexPathForSelectedRow
-                    destination.viaSegue = advancedList[path!.row]
+                    destination.categoriaViaSegue = advs[path!.row].categoria
+                    destination.movimentoViaSegue = inters[path!.row].movimento
                     break
                     
                 default:
